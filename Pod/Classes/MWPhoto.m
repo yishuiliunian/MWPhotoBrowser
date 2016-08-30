@@ -117,7 +117,9 @@
 
 - (void)getVideoURL:(void (^)(NSURL *url))completion {
     if (_videoURL) {
-        completion(_videoURL);
+        if (completion != NULL) {
+            completion(_videoURL);
+        }
     } else if (_asset && _asset.mediaType == PHAssetMediaTypeVideo) {
         [self cancelVideoRequest]; // Cancel any existing
         PHVideoRequestOptions *options = [PHVideoRequestOptions new];
