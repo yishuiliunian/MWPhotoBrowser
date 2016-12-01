@@ -8,10 +8,13 @@
 
 #import "MWTapDetectingView.h"
 
+@interface  MWTapDetectingView ()
+
+@end
 @implementation MWTapDetectingView
 
 - (id)init {
-	if ((self = [super init])) {
+	if ((self = [self initWithFrame:CGRectZero])) {
 		self.userInteractionEnabled = YES;
 	}
 	return self;
@@ -20,9 +23,12 @@
 - (id)initWithFrame:(CGRect)frame {
 	if ((self = [super initWithFrame:frame])) {
 		self.userInteractionEnabled = YES;
+
 	}
 	return self;
 }
+
+
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
