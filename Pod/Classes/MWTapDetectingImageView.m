@@ -8,15 +8,26 @@
 
 #import "MWTapDetectingImageView.h"
 
+@interface  MWTapDetectingImageView ()
+
+@end
 @implementation MWTapDetectingImageView
 
 - (id)initWithFrame:(CGRect)frame {
 	if ((self = [super initWithFrame:frame])) {
 		self.userInteractionEnabled = YES;
 	}
+	UILongPressGestureRecognizer * longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
+	[self addGestureRecognizer:longPressGestureRecognizer];
 	return self;
 }
 
+- (void) handleLongPressGesture:(UILongPressGestureRecognizer *)longGestrue
+{
+	if (longGestrue.state == UIGestureRecognizerStatePossible) {
+
+	}
+}
 - (id)initWithImage:(UIImage *)image {
 	if ((self = [super initWithImage:image])) {
 		self.userInteractionEnabled = YES;
